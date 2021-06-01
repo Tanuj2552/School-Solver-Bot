@@ -15,7 +15,7 @@ For this to work, you should have the following installed in your system.
     2) pip install tk
     3) pip install turtle
 
-After this, all you have to do is to run the code from any of your IDE's of text editors.. or terminal
+After this, all you have to do is to run the code from any of your IDE's or text editors.. or terminal
 
 This detects when there is a new question and shows you indication.
 
