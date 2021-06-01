@@ -19,6 +19,8 @@ After this, all you have to do is to run the code from any of your IDE's of text
 
 This detects when there is a new question and shows you indication.
 
-NOTE: This code is still in development stage, I am trying to add some gui features to it.
+And you have to rerun this file after every new question indication.
+
+NOTE: This code is still in development stage, I am trying to add more features to it.
 
 Feel free to pull request and inform about any errors in the code :)
