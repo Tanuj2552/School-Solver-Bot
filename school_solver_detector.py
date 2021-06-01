@@ -7,6 +7,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support.expected_conditions import presence_of_element_located
 import tkinter
 from tkinter import *
+from datetime import datetime
 
 def tinkerit():
     def do_it():
@@ -48,12 +49,18 @@ def get_it(driver):
     title = driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div[1]/table/tbody/tr[1]/td[3]').text 
 
     l = [price, category, title]
+
+    now = datetime.now()
+    current_time = now.strftime("%H:%M:%S")
     
     print('its cool')
-    print(price)
-    print(category)
-    print(title)
     print(l)
+    print('price = ',price)
+    print('category is: ', category)
+    print('title is ', title)
+    print('At time of: ', current_time)
+    
+    print('')
     return l
     #category = driver.find_element_by_xpath('//*[@id="table-3684"]/tbody/tr[1]/td[2]/div')
 
