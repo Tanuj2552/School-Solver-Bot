@@ -54,6 +54,7 @@ def get_it(driver):
     current_time = now.strftime("%H:%M:%S")
     
     print('its cool')
+    print('its awesome')
     print('price = ',price)
     print('category is: ', category)
     print('title is ', title)
