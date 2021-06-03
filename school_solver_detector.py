@@ -53,13 +53,10 @@ def get_it(driver):
     now = datetime.now()
     current_time = now.strftime("%H:%M:%S")
     
-    print('its cool')
-    print('its awesome')
-    print('price = ',price)
-    print('category is: ', category)
-    print('title is ', title)
+    print('Price = ',price)
+    print('Category = ', category)
+    print('Title =  ', title)
     print('At time of: ', current_time)
-    
     print('')
     return l
     #category = driver.find_element_by_xpath('//*[@id="table-3684"]/tbody/tr[1]/td[2]/div')
