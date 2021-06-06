@@ -71,8 +71,8 @@ url = 'https://www.schoolsolver.com/account/login/?next=/'
 
 driver.get(url)
 
-driver.find_element_by_id('id_username').send_keys('shaquib1325')
-driver.find_element_by_id('id_password').send_keys('Schoolsolver@123')
+driver.find_element_by_id('id_username').send_keys('master_educator')
+driver.find_element_by_id('id_password').send_keys('Adminjane@20')
 
 driver.find_element_by_xpath('//*[@id="login-form"]/div/div[3]/div[1]').click()
 
