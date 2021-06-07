@@ -9,9 +9,10 @@ import tkinter
 from tkinter import *
 from datetime import datetime
 
-def tinkerit():
-    def do_it():
+def tinkerit(link):
+    def start_it():
         print("cool doing")
+        do_it(link)
 
     def stop_it():
         print('bad not doing')
@@ -20,15 +21,13 @@ def tinkerit():
     tr.title("New Question!!")
     tr.geometry('500x300')
 
-    yes_button = tkinter.Button(tr, text = 'See the Question',height = '8', width = '50', command = do_it)
+    yes_button = tkinter.Button(tr, text = 'See the Question',height = '8', width = '50', command = start_it)
     no_button = tkinter.Button(tr, text = 'Nah.. dont see',height = '8', width = '50', command = stop_it)
 
     yes_button.pack()
     no_button.pack()
 
     tr.mainloop()
-
-    do_it(current_link)
 
     return
 
@@ -38,7 +37,7 @@ def do_it(link):
     turtle.write('New Question', font = ('Courier', 20, 'italic'))
     turtle.setpos(-300,0)
     turtle.write(f'Category = {link[1]}, price = {link[0]}, topic = {link[2]}',font = ('Courier', 20, 'italic'))
-    tinkerit()
+    
     return
 
 
@@ -80,6 +79,7 @@ driver.find_element_by_xpath('/html/body/div[1]/div[3]/nav/div[2]/ul[1]/li[4]').
 
 initial_link = get_it(driver)
 
+tinkerit(initial_link)
 
 while(True):
     time.sleep(10)
