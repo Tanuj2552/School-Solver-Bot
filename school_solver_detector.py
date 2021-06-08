@@ -8,13 +8,15 @@ from datetime import datetime
 def tinkerit(driver, link):
     def start_it():
         print("cool doing")
-        do_it(link)
         tr.destroy()
-
+        do_it(link)
+        logic(driver, link)
+       
     def stop_it():
         print('bad not doing')
-        logic(driver, link)
         tr.destroy()
+        logic(driver, link)
+        
 
     tr = tkinter.Tk()
     tr.title("New Question!!")
@@ -32,8 +34,9 @@ def tinkerit(driver, link):
 
 def do_it(link):
     print("New Question!!")
-    turtle.setpos(-300,300)
+    turtle.setpos(-300,100)
     turtle.write(f'Category = {link[1]}, \n price = {link[0]},\n topic = {link[2]}',font = ('Courier', 20, 'italic'))
+    turtle.exitonclick()
     return
 
 def get_it(driver):
