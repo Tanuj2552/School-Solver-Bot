@@ -18,9 +18,11 @@ For this to work, you should have the following installed in your system.
     
 After this, all you have to do is to run the code from any of your IDE's or text editors.. or terminal
 
-This detects when there is a new question and shows you indication.
+This detects when there is a new question and shows you a tkinter gui, where you can choose the option to see the question or not see it.
 
-And you have to rerun this file after every new question indication.
+1) if you choose to see the quesiton, a turtle window opens, displaying basic info about the questions. And if you click on the turtle window, the code again runs normally and continues to fetch for new questions.
+2) if you choose the option, not to see the question, then also the code runs normally to fetch new questions.
+3) You need not run the code everytime, you just have to run it once.
 
 NOTE: This code is still in basic development stage, I am trying to add more features to it.
 
