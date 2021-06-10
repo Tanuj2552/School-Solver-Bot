@@ -1,4 +1,5 @@
 # School-Solver-Bot
+school solver is a tutoring webxite
 It is a simple web scraping bot, that displays a text message on your screen, when a new question is added in the school solver.
 
 For this to work, you should have the following installed in your system.
