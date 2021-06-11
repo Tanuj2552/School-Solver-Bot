@@ -1,23 +1,23 @@
+import requests
+from bs4 import BeautifulSoup
 import time
 import turtle
-from selenium import webdriver
 import tkinter
 from tkinter import *
 from datetime import datetime
 
-def tinkerit(driver, link):
+def tinkerit(link):
     def start_it():
         print("cool doing")
         tr.destroy()
         do_it(link)
-        logic(driver, link)
+        logic(link)
        
     def stop_it():
         print('bad not doing')
         tr.destroy()
-        logic(driver, link)
+        logic(link)
         
-
     tr = tkinter.Tk()
     tr.title("New Question!!")
     tr.geometry('500x300')
@@ -39,20 +39,26 @@ def do_it(link):
     turtle.exitonclick()
     return
 
-def get_it(driver):
-    l = []
-    price = driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div[1]/table/tbody/tr[1]/td[1]').text
-    category = driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div[1]/table/tbody/tr[1]/td[2]/div').text
-    title = driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div[1]/table/tbody/tr[1]/td[3]').text 
+def get_it():
+    response = requests.get("https://www.schoolsolver.com/questions/")
+    text = response.text
+    data = BeautifulSoup(text, 'html.parser')
+    New_qn = data.find_all('tr')[1]
 
-    l = [price, category, title]
+    col_vals = New_qn.find_all('td')
+    l = []
+
+    for x in col_vals[:3]:
+        d = x.text
+        d = d.replace('\n','')
+        l.append(d)
 
     now = datetime.now()
     current_time = now.strftime("%H:%M:%S")
     
-    print('Price = ',price)
-    print('Category = ', category)
-    print('Title =  ', title)
+    print('Price = ',l[0])
+    print('Category = ', l[1])
+    print('Title =  ', l[2])
     print('At time of: ', current_time)
     print('')
 
@@ -60,39 +66,27 @@ def get_it(driver):
     #category = driver.find_element_by_xpath('//*[@id="table-3684"]/tbody/tr[1]/td[2]/div')
 
 def open_it():
-    PATH = r"D:\chromedriver_win32\chromedriver.exe"
-
-    driver = webdriver.Chrome(PATH)
-
-    url = 'https://www.schoolsolver.com/account/login/?next=/'
-
-    driver.get(url)
-
-    driver.find_element_by_id('id_username').send_keys('master_educator')
-    driver.find_element_by_id('id_password').send_keys('Adminjane@20')
-
-    driver.find_element_by_xpath('//*[@id="login-form"]/div/div[3]/div[1]').click()
-
-    driver.find_element_by_xpath('/html/body/div[1]/div[3]/nav/div[2]/ul[1]/li[4]').click()
-
-    initial_link = get_it(driver)
-    return driver, initial_link
+    initial_link = get_it()
+    return initial_link
 
 
-def logic(driver, initial_link):
+def logic(initial_link):
     while(True):
         time.sleep(10)
-        driver.refresh()
-        current_link = get_it(driver)
+        current_link = get_it()
         if(initial_link != current_link):
             initial_link = current_link
-            tinkerit(driver, current_link)
+            tinkerit(current_link)
             return current_link
 
 if(__name__ == "__main__"):
     print("start")
-    driver, initial_link = open_it()
-    temp_link = logic(driver, initial_link)
+    initial_link = open_it()
+    temp_link = logic(initial_link)
+
+
+
+
 
 
 
