@@ -4,12 +4,26 @@ It is a simple web scraping bot, that displays a text message on your screen, wh
 
 For this to work, you should have the following installed in your system.
 
-1) Python3 & pip (https://phoenixnap.com/kb/install-pip-windows)
+1) Python3 (https://www.youtube.com/watch?v=uDbDIhR76H4) & pip (https://phoenixnap.com/kb/install-pip-windows)
 
 2) you must also install requests, bs4, turtle, tkinter modules which can be installed using
 
     ```
     pip install -r requirements.txt
+    ```
+    The above command can be used only if you clone this repository.
+    Else the following commands must be executed in the CMD (Command Prompt) 
+    ```
+    pip install requests
+    ```
+    ```
+    pip install bs4
+    ```
+    ```
+    pip install tk
+    ```
+    ```
+    pip install turtle
     ```
     
 After this, all you have to do is to run the code from any of your IDE's or text editors.. or terminal
